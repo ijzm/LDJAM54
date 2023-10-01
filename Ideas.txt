@@ -1,0 +1,36 @@
+Board
+	7x7
+	Can Grow in any direction with powerups
+	Every x Pieces a laser can appear horizontally or vertically
+	After x turns, all pieces in the laser gets destroyed
+	X Points for piece destroyed. Y if all line deleted
+
+	You can use points to buy at the shop
+	Every X Tetromino placed a powerup with shop spawns
+
+Shop:
+	3 Choices
+	Pay with points
+
+	Choices:
+		New Column/Row
+		New Powerup
+
+		Color Synergies
+
+Tetromino:
+	4 Colors:
+		Blue
+		Red
+		Green
+		Yellow
+
+	Build with Pieces of same color
+	Each Piece has a chance to become a powerup
+	Powerup gets activated on deletion
+
+Powerup:
+	Bomb: Kills a 3x3 Area
+	Shop: Spawn the shop
+	Star: Gives more points
+

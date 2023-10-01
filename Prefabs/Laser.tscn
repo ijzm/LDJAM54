@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://wkpwdjjcbc21"]
+
+[ext_resource type="Script" path="res://Scripts/Laser.gd" id="1_eqn1n"]
+[ext_resource type="Texture2D" uid="uid://bld1c4k0ij7an" path="res://Graphics/Laser.png" id="2_pryou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcsjs"]
+atlas = ExtResource("2_pryou")
+region = Rect2(0, 0, 64, 16)
+
+[node name="Laser" type="Node2D"]
+z_index = 100
+script = ExtResource("1_eqn1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_jcsjs")
+hframes = 4

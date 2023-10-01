@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b62wg2bvh02qw"]
+
+[ext_resource type="Script" path="res://Scripts/Control_Key.gd" id="1_4s2h2"]
+[ext_resource type="Theme" uid="uid://bjxsuj0r4fexm" path="res://Levels/new_theme.tres" id="2_8m03m"]
+
+[node name="Control_Key" type="HBoxContainer"]
+theme_override_constants/separation = 50
+script = ExtResource("1_4s2h2")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8m03m")
+text = "Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme = ExtResource("2_8m03m")
+text = "W"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

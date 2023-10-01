@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dysbpxoqrwkqi"]
+
+[ext_resource type="Script" path="res://TSC/TSC.gd" id="1_ddtx0"]
+[ext_resource type="Texture2D" uid="uid://ctsg3ju6udtw1" path="res://TSC/TSC.png" id="2_7e2nh"]
+[ext_resource type="AudioStream" uid="uid://blb2r83htp1i4" path="res://TSC/TSC.mp3" id="2_uhdkn"]
+
+[node name="TSC" type="Node"]
+script = ExtResource("1_ddtx0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7e2nh")
+stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uhdkn")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

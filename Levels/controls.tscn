@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgun37fsvlqd3"]
+
+[ext_resource type="Script" path="res://Scripts/controls.gd" id="1_710co"]
+[ext_resource type="Theme" uid="uid://bjxsuj0r4fexm" path="res://Levels/new_theme.tres" id="3_4pcnr"]
+
+[node name="Controls" type="Node"]
+script = ExtResource("1_710co")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -25.0
+offset_right = 225.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Control" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("3_4pcnr")
+text = "Action"
+horizontal_alignment = 1
+
+[node name="Control2" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("3_4pcnr")
+text = "Key"
+horizontal_alignment = 1
+
+[node name="Menu" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -60.0
+offset_right = 210.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme = ExtResource("3_4pcnr")
+text = "Menu"
+
+[connection signal="pressed" from="CanvasLayer/Menu" to="." method="_on_menu_pressed"]

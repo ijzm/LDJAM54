@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctvkyviuaunjf"]
+
+[ext_resource type="PackedScene" uid="uid://ba4tew5hghlgv" path="res://Levels/game_manager.tscn" id="1_8r2yb"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="2_u4ynh"]
+[ext_resource type="FontFile" uid="uid://dcshewn2ay64t" path="res://Graphics/Raleway-Medium.ttf" id="3_xocie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayx6l"]
+bg_color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[sub_resource type="Theme" id="Theme_jjhfd"]
+Panel/styles/panel = SubResource("StyleBoxFlat_ayx6l")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2d3d0"]
+font = ExtResource("3_xocie")
+font_size = 24
+
+[node name="Game" type="Node"]
+
+[node name="Game_Manager" parent="." instance=ExtResource("1_8r2yb")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+script = ExtResource("2_u4ynh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Score" type="Panel" parent="UI/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jjhfd")
+
+[node name="Score_Label" type="Label" parent="UI/HBoxContainer/VBoxContainer/Score"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 000000"
+label_settings = SubResource("LabelSettings_2d3d0")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Next" type="Panel" parent="UI/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jjhfd")
+
+[node name="Next_Label" type="Label" parent="UI/HBoxContainer/VBoxContainer/Next"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Next"
+label_settings = SubResource("LabelSettings_2d3d0")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Current" type="Panel" parent="UI/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jjhfd")
+
+[node name="Current_Label" type="Label" parent="UI/HBoxContainer/VBoxContainer/Current"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Current"
+label_settings = SubResource("LabelSettings_2d3d0")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Panel" type="Panel" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(580, 580)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jjhfd")
+
+[connection signal="update_ui" from="Game_Manager" to="UI" method="_on_game_manager_update_ui"]

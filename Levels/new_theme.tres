@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bjxsuj0r4fexm"]
+
+[ext_resource type="FontFile" uid="uid://dcshewn2ay64t" path="res://Graphics/Raleway-Medium.ttf" id="1_5e6xf"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_5e6xf")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_5e6xf")

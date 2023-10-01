@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbpnedjrb3bfu"]
+
+[ext_resource type="Texture2D" uid="uid://e18ldff3feqe" path="res://Graphics/Powerup_Shop.png" id="1_domon"]
+
+[node name="Powerup_Points" type="Sprite2D"]
+texture = ExtResource("1_domon")

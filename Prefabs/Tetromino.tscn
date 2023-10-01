@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://mjd1mbefy0oh"]
+
+[ext_resource type="Script" path="res://Scripts/Tetromino.gd" id="1_ap5un"]
+
+[node name="Tetromino" type="Node2D"]
+position = Vector2(-82, 0)
+script = ExtResource("1_ap5un")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://be356aukkpewc"]
+
+[ext_resource type="Texture2D" uid="uid://7yenjtxkalli" path="res://Graphics/Current_Piece_Outline.png" id="1_rk7di"]
+[ext_resource type="Script" path="res://Scripts/Current_Piece.gd" id="2_0dk35"]
+
+[node name="Current_Piece" type="Sprite2D"]
+z_index = 10
+texture = ExtResource("1_rk7di")
+script = ExtResource("2_0dk35")

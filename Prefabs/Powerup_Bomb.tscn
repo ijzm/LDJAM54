@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3intg02ils8g"]
+
+[ext_resource type="Texture2D" uid="uid://dmeh68w8ivn61" path="res://Graphics/Powerup_Bomb.png" id="1_d7c0c"]
+
+[node name="Powerup_Points" type="Sprite2D"]
+texture = ExtResource("1_d7c0c")

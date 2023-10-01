@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dueh2oh58lngj"]
+
+[ext_resource type="Script" path="res://Scripts/Piece.gd" id="1_aeu4m"]
+[ext_resource type="Texture2D" uid="uid://b7m4v6m8mdwgc" path="res://Graphics/Piece.png" id="2_e2isw"]
+
+[node name="Piece" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_aeu4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.203922, 1)
+texture = ExtResource("2_e2isw")

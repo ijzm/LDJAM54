@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://kijvwc0xcbmu"]
+
+[ext_resource type="Script" path="res://Scripts/Main_Menu.gd" id="1_ot03e"]
+[ext_resource type="FontFile" uid="uid://dcshewn2ay64t" path="res://Graphics/Raleway-Medium.ttf" id="2_41hvi"]
+[ext_resource type="Texture2D" uid="uid://bwhmurie5c5wn" path="res://Graphics/Logo.png" id="2_cedr7"]
+
+[node name="Main_Menu" type="Node"]
+script = ExtResource("1_ot03e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_cedr7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+
+[node name="Easy" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_41hvi")
+theme_override_font_sizes/font_size = 32
+text = "Play (Easy)"
+
+[node name="Hard" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_41hvi")
+theme_override_font_sizes/font_size = 32
+text = "Play (Hard)"
+
+[node name="Controls" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_41hvi")
+theme_override_font_sizes/font_size = 32
+text = "Controls"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer/Easy" to="." method="_on_button_7x7_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer/Hard" to="." method="_on_button_5x5_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]

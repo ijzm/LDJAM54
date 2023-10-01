@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcwyd0d2yr026"]
+
+[ext_resource type="Script" path="res://Scripts/Game_Over.gd" id="1_b6otd"]
+[ext_resource type="FontFile" uid="uid://dcshewn2ay64t" path="res://Graphics/Raleway-Medium.ttf" id="2_axvq3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eirue"]
+
+[node name="Game_Over" type="Node"]
+script = ExtResource("1_b6otd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("PlaceholderTexture2D_eirue")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+
+[node name="Score_Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_axvq3")
+theme_override_font_sizes/font_size = 64
+text = "Score: 00a"
+horizontal_alignment = 1
+
+[node name="Play_Again" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_axvq3")
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="Menu" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_axvq3")
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer/Play_Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
