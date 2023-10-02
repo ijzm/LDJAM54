@@ -330,11 +330,11 @@ func init_no_laser(dir, pos, connected_laser=null):
 		
 	# Corner piece
 	if(pos == -1):
-		var new_texture = load("res://Graphics//No_Laser_Corner_Tile.png")
+		var new_texture = Globals.No_Laser_Corner_Tile
 		no_laser_tile_instance.set_texture(new_texture)
 		
 	if(connected_laser != null):
-		var new_texture = load("res://Graphics//No_Laser_Wall_Tile.png")
+		var new_texture = Globals.No_Laser_Wall_Tile
 		no_laser_tile_instance.set_texture(new_texture)
 		current_laser_walls[connected_laser] = no_laser_tile_instance
 		
@@ -398,7 +398,7 @@ func generate_current_tetromino(src: Tetromino):
 
 func _process(_delta):
 	if do_drop and finished_moving:
-		
+
 		if do_force_drop:
 			if check_valid_position() == false:
 				Globals.score = score

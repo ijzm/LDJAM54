@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsqwo1ievyjbg"]
 
-[ext_resource type="Texture2D" uid="uid://d0k0i63f30ss0" path="res://Graphics/No_laser_tile.png" id="1_312ax"]
+[ext_resource type="Texture2D" uid="uid://d0k0i63f30ss0" path="res://Graphics/No_Laser_Tile.png" id="1_312ax"]
 
 [node name="NoLaserTile" type="Sprite2D"]
 position = Vector2(288, 498)

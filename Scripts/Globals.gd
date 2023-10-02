@@ -62,6 +62,9 @@ var laser_bullet_ps:         PackedScene = preload("res://Prefabs/Laser_Bullet.t
 var current_piece_shadow_ps: PackedScene = preload("res://Prefabs/Current_Piece_Shadow.tscn")
 var no_laser_tile_ps:        PackedScene = preload("res://Prefabs/No_Laser_Tile.tscn")
 
+var No_Laser_Corner_Tile = preload("res://Graphics/No_Laser_Corner_Tile.png")
+var No_Laser_Wall_Tile   = preload("res://Graphics/No_Laser_Wall_Tile.png")
+
 var powerups_ps = {
 	"p": preload("res://Prefabs/Powerup_Points.tscn"),
 	"b": preload("res://Prefabs/Powerup_Bomb.tscn"),
