@@ -400,6 +400,8 @@ func _process(_delta):
 	if do_drop and finished_moving:
 
 		if do_force_drop:
+			do_force_drop = false
+			
 			if check_valid_position() == false:
 				Globals.score = score
 				get_tree().change_scene_to_file("res://Levels/game_over.tscn")
