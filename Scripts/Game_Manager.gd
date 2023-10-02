@@ -14,6 +14,7 @@ var next_tetromino: Tetromino
 var tetromino: Tetromino
 var current_tetromino: Current_Tetromino
 var current_lasers = []
+var current_laser_walls = {}
 var timer = Timer.new()
 
 
@@ -49,17 +50,21 @@ func generate_laser():
 		laser_instance.set_position(
 			Vector2(-1, laser_instance.pos) * Globals.SIZE
 		)
+		if(laser_instance.pos+1 < board.height):
+			init_no_laser("h", laser_instance.pos+1, laser_instance)
 	else:
 		laser_instance.set_position(
 			Vector2(laser_instance.pos, -1) * Globals.SIZE
 		)
 		laser_instance.set_rotation(PI / 2)
+		init_no_laser("v", laser_instance.pos-1, laser_instance)
 
 	current_lasers.append(laser_instance)
 	
 
 func update_lasers():
 	var to_delete = []
+	var delete_laser_walls = false
 	for i in current_lasers:
 		add_tweens(i)
 
@@ -83,6 +88,10 @@ func update_lasers():
 	for i in to_delete:
 		current_lasers.erase(i)
 		i.queue_free()
+		if(current_laser_walls.has(i)):
+			current_laser_walls[i].queue_free()
+			current_laser_walls.erase(i)
+			i.queue_free()
 
 func get_random_location():
 	var loc = Vector2(
@@ -303,7 +312,7 @@ func init_board():
 	for i in range(board.height):
 		init_no_laser("h", i)
 
-func init_no_laser(dir, pos):
+func init_no_laser(dir, pos, connected_laser=null):
 	var no_laser_tile_instance = Globals.no_laser_tile_ps.instantiate()
 	board.add_child(no_laser_tile_instance)
 
@@ -316,6 +325,12 @@ func init_no_laser(dir, pos):
 			Vector2(pos, -1) * Globals.SIZE
 		)
 		no_laser_tile_instance.set_rotation(PI / 2)
+		
+	if(connected_laser != null):
+		var new_texture = load("res://Graphics//No_Laser_Wall_Tile.png") # Load the new texture.
+		no_laser_tile_instance.set_texture(new_texture)
+		current_laser_walls[connected_laser] = no_laser_tile_instance
+		
 
 func init_timer():
 	timer.connect("timeout", force_drop)
