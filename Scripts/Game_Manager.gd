@@ -231,7 +231,7 @@ func add_tweens(laser: Laser):
 		tween.tween_property(
 			t,
 			"modulate",
-			Color.WHITE,
+			Color.from_string("#808080", Color.GRAY),
 			0.5
 		)
 		#tween.tween_property(
