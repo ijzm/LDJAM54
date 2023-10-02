@@ -5,5 +5,14 @@ extends Node2D
 @export var pos: int
 @export var dir: String
 
-func _process(_delta):
-	$Sprite2D.frame = clampi($Sprite2D.hframes - stage - 1, 0, $Sprite2D.hframes - 1)
+func set_animation_frame():
+	print(Globals.LASER_TETROMINO_INTERVAL - stage)
+	$AnimatedSprite2D.play(
+		str(
+			clamp(
+				Globals.LASER_TETROMINO_INTERVAL - stage,
+				0,
+				Globals.LASER_TETROMINO_INTERVAL
+			)
+		)
+	)

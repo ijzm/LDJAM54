@@ -47,11 +47,11 @@ func generate_laser():
 
 	if laser_instance.dir == "h":
 		laser_instance.set_position(
-			Vector2(-2, laser_instance.pos) * Globals.SIZE
+			Vector2(-1, laser_instance.pos) * Globals.SIZE
 		)
 	else:
 		laser_instance.set_position(
-			Vector2(laser_instance.pos, -2) * Globals.SIZE
+			Vector2(laser_instance.pos, -1) * Globals.SIZE
 		)
 		laser_instance.set_rotation(PI / 2)
 
@@ -74,6 +74,8 @@ func update_lasers():
 
 			delete_line(i)
 			to_delete.append(i)
+
+		i.set_animation_frame()
 			
 	if len(to_delete) > 0:
 		sounds.play_Laser()
