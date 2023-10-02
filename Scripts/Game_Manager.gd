@@ -297,6 +297,26 @@ func init_board():
 		board.height * Globals.SIZE.y 
 	))
 
+	for i in range(board.width):
+		init_no_laser("v", i)
+
+	for i in range(board.height):
+		init_no_laser("h", i)
+
+func init_no_laser(dir, pos):
+	var no_laser_tile_instance = Globals.no_laser_tile_ps.instantiate()
+	board.add_child(no_laser_tile_instance)
+
+	if dir == "h":
+		no_laser_tile_instance.set_position(
+			Vector2(-1, pos) * Globals.SIZE
+		)
+	else:
+		no_laser_tile_instance.set_position(
+			Vector2(pos, -1) * Globals.SIZE
+		)
+		no_laser_tile_instance.set_rotation(PI / 2)
+
 func init_timer():
 	timer.connect("timeout", force_drop)
 	timer.wait_time = Globals.FALL_TIME
