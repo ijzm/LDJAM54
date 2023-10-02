@@ -19,6 +19,10 @@ func generate_board(size: Vector2):
 
 			board_piece_instance.set_position(pos)
 
-			board_piece_instance.set_modulate(
-				Globals.BOARD_COLOR_LIGHT if (x + y) % 2 == 0 else Globals.BOARD_COLOR_DARK
-			)
+			if (x + y) % 2 == 0:
+				var light_texture = load("res://Graphics//Board_Piece_Light.png")
+				board_piece_instance.set_texture(light_texture)
+			else:
+				var dark_texture = load("res://Graphics//Board_Piece_Dark.png")
+				board_piece_instance.set_texture(dark_texture)
+			

@@ -127,7 +127,7 @@ func get_next_tetromino():
 	next_shape = Globals.SHAPES[randi() % Globals.SHAPES.size()]
 	get_next_piece_powerups()
 	
-	var colors = Globals.COLORS.keys()
+	var colors = Globals.COLORS
 	next_color = colors[randi() % colors.size()]
 
 
