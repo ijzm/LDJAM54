@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba4tew5hghlgv"]
+[gd_scene load_steps=9 format=3 uid="uid://ba4tew5hghlgv"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_bbseq"]
 [ext_resource type="Script" path="res://Scripts/Board.gd" id="1_mo6lx"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://so80x65q8gfy" path="res://Music/Lasers_firing.wav" id="4_7buqo"]
 [ext_resource type="AudioStream" uid="uid://b7nn2cf3m0n7h" path="res://Music/No_Place_block.wav" id="5_pb5rb"]
 [ext_resource type="AudioStream" uid="uid://swkdpsin8eh8" path="res://Music/Rotate.wav" id="6_fof23"]
+[ext_resource type="PackedScene" uid="uid://b0vim5n637jhb" path="res://Prefabs/Clip_Mask.tscn" id="8_23bfx"]
 
 [node name="Game_Manager" type="Node2D"]
 script = ExtResource("1_bbseq")
@@ -34,5 +35,10 @@ zoom = Vector2(3, 3)
 script = ExtResource("1_mo6lx")
 
 [node name="Canvas_Group" type="CanvasGroup" parent="."]
-self_modulate = Color(1, 1, 1, 0.588235)
 z_index = 1000
+
+[node name="Clip_Mask" parent="Canvas_Group" instance=ExtResource("8_23bfx")]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(0, -1)
+centered = false

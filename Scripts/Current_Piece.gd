@@ -2,7 +2,7 @@ extends Sprite2D
 
 var timer: float = 3
 var shadow
-var canvas_group: CanvasGroup
+var canvas_group
 
 func kill_shadow():
 	shadow.queue_free()
@@ -15,7 +15,7 @@ func set_powerup(powerup: String):
 
 func _ready():
 	shadow = Globals.current_piece_shadow_ps.instantiate()
-	canvas_group = get_node("/root/Game/Game_Manager/Canvas_Group")
+	canvas_group = get_node("/root/Game/Game_Manager/Canvas_Group/Clip_Mask")
 	canvas_group.add_child(shadow)
 
 	var tween = shadow.create_tween()

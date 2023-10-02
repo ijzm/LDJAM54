@@ -281,6 +281,20 @@ func init_board():
 		-(board.height * Globals.SIZE.y)/2
 	))
 
+	var clipping_mask: Sprite2D = $Canvas_Group/Clip_Mask
+
+	clipping_mask.set_global_position(
+		board.get_global_position() + Vector2(
+			-Globals.SIZE.x/2,
+			-Globals.SIZE.y/2,
+		)
+	)
+
+	clipping_mask.get_texture().set_size(Vector2(
+		board.width * Globals.SIZE.x,
+		board.height * Globals.SIZE.y 
+	))
+
 func init_timer():
 	timer.connect("timeout", force_drop)
 	timer.wait_time = Globals.FALL_TIME
@@ -427,7 +441,7 @@ func drop_current_tetromino():
 		i.set_position(i.pos * Globals.SIZE)
 
 	#Kills Shadows
-	for i in $Canvas_Group.get_children():
+	for i in $Canvas_Group/Clip_Mask.get_children():
 		i.queue_free()
 	finished_moving = true
 

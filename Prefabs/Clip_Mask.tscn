@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0vim5n637jhb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l6xw7"]
+size = Vector2(16, 16)
+
+[node name="Test" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.360784)
+clip_children = 1
+z_index = 10
+texture = SubResource("PlaceholderTexture2D_l6xw7")
