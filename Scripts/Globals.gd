@@ -8,7 +8,7 @@ var MAX_LASER_STAGE: int = 3
 
 var BOARD_SIZE: Vector2 = Vector2(5, 5)
 var BOARD_COLOR_LIGHT = Color.from_string("#333333", Color.WHITE)
-var BOARD_COLOR_DARK = Color.from_string("#1e1e1e", Color.BLACK)
+var BOARD_COLOR_DARK = Color.from_string("#1E1E1E", Color.BLACK)
 
 var LASER_TETROMINO_INTERVAL = 3
 var SHOP_PIECE_INTERVAL = 15
