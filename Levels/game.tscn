@@ -127,8 +127,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_f3vry")
 [node name="Panel" type="Panel" parent="UI"]
 show_behind_parent = true
 z_index = -1
-offset_right = 965.0
-offset_bottom = 611.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ii1vf")
 
 [connection signal="update_ui" from="Game_Manager" to="UI" method="_on_game_manager_update_ui"]

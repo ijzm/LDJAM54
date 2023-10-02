@@ -19,6 +19,7 @@ var timer = Timer.new()
 
 
 var do_drop: bool = false
+var do_force_drop: bool = false
 var finished_moving: bool = true
 
 var score: int = 0
@@ -379,11 +380,8 @@ func _ready():
 	init()
 
 func force_drop():
-	if check_valid_position() == false:
-		Globals.score = score
-		get_tree().change_scene_to_file("res://Levels/game_over.tscn")
-	else:
-		do_drop = true
+	do_drop = true
+	do_force_drop = true
 
 func generate_tetromino(shape, color):
 	var output = Globals.tetromino_ps.instantiate()
@@ -400,8 +398,16 @@ func generate_current_tetromino(src: Tetromino):
 
 func _process(_delta):
 	if do_drop and finished_moving:
+		
+		if do_force_drop:
+			if check_valid_position() == false:
+				Globals.score = score
+				get_tree().change_scene_to_file("res://Levels/game_over.tscn")
+
 		drop_current_tetromino()
 		do_drop = false
+
+
 
 func update_finished_moving():
 	finished_moving = true
