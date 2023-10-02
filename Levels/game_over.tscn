@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcwyd0d2yr026"]
+[gd_scene load_steps=5 format=3 uid="uid://bcwyd0d2yr026"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Over.gd" id="1_b6otd"]
 [ext_resource type="FontFile" uid="uid://dcshewn2ay64t" path="res://Graphics/Raleway-Medium.ttf" id="2_axvq3"]
+[ext_resource type="Texture2D" uid="uid://b71mun7plt47o" path="res://Graphics/Title_screen_background.png" id="2_iv7w0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eirue"]
 
@@ -9,6 +10,18 @@
 script = ExtResource("1_b6otd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.9371
+offset_right = 9.93713
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iv7w0")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15
