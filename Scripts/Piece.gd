@@ -7,7 +7,8 @@ extends Node2D
 
 func set_color(new_color: String):
 	color = new_color
-	$Sprite2D.set_modulate(Globals.COLORS.get(color, Color.WHITE))
+	var new_texture = load("res://Graphics//"+ color + "_Piece.png") # Load the new texture.
+	$Sprite2D.set_texture(new_texture)
 
 func set_powerup(new_powerup: String):
 	powerup = new_powerup

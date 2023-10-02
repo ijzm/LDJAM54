@@ -13,12 +13,12 @@ var BOARD_COLOR_DARK = Color.from_string("#1e1e1e", Color.BLACK)
 var LASER_TETROMINO_INTERVAL = 3
 var SHOP_PIECE_INTERVAL = 15
 
-var COLORS = {
-	"RED": Color.from_string("#FF2222", Color.RED),
-	"GREEN": Color.from_string("#00CC00", Color.GREEN),
-	"BLUE": Color.from_string("#00AAFF", Color.BLUE),
-	"YELLOW": Color.from_string("#FFFF33", Color.YELLOW),
-}
+var COLORS = [
+	"RED",
+	"GREEN",
+	"BLUE",
+	"ORANGE",
+]
 
 var SHAPES = [
 	[
