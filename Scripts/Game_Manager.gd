@@ -75,6 +75,8 @@ func update_lasers():
 			delete_line(i)
 			to_delete.append(i)
 			
+	if len(to_delete) > 0:
+		sounds.play_Laser()
 
 	for i in to_delete:
 		current_lasers.erase(i)
@@ -262,7 +264,8 @@ func delete_line(laser: Laser):
 				scored = true
 
 	if scored:
-		sounds.play_score()
+		pass
+		#sounds.play_score()
 
 
 func init_board():
@@ -401,8 +404,10 @@ func check_valid_position():
 
 func drop_current_tetromino():
 	if check_valid_position() == false:
-		sounds.play_error()
+		sounds.play_No_Place_Block()
 		return
+
+	sounds.play_Place()
 
 	tetromino.set_global_position(current_tetromino.get_global_position())
 	
@@ -449,6 +454,7 @@ func _input(event):
 		do_drop = true
 
 	if event.is_action_pressed("Move_Rotate_Clockwise"):
+		sounds.play_Rotate()
 		current_tetromino.rotate_clockwise(Globals.FALL_TIME - timer.time_left)
 
 		current_tetromino.pos = Vector2(
@@ -459,6 +465,7 @@ func _input(event):
 		current_tetromino.set_position(current_tetromino.pos * Globals.SIZE)
 
 	if event.is_action_pressed("Move_Rotate_Counter_Clockwise"):
+		sounds.play_Rotate()
 		current_tetromino.rotate_counter_clockwise(Globals.FALL_TIME - timer.time_left)
 
 		current_tetromino.pos = Vector2(

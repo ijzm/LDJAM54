@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba4tew5hghlgv"]
+[gd_scene load_steps=8 format=3 uid="uid://ba4tew5hghlgv"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_bbseq"]
 [ext_resource type="Script" path="res://Scripts/Board.gd" id="1_mo6lx"]
 [ext_resource type="Script" path="res://Scripts/Sounds.gd" id="2_3q2do"]
-[ext_resource type="AudioStream" uid="uid://cb7bf3mj7j81g" path="res://Music/error.ogg" id="2_xqid2"]
-[ext_resource type="AudioStream" uid="uid://bhkygftdbtt1o" path="res://Music/score.ogg" id="4_7t1tn"]
+[ext_resource type="AudioStream" uid="uid://b53r381vhcobm" path="res://Music/Placing_on_board.wav" id="3_rtakw"]
+[ext_resource type="AudioStream" uid="uid://so80x65q8gfy" path="res://Music/Lasers_firing.wav" id="4_7buqo"]
+[ext_resource type="AudioStream" uid="uid://b7nn2cf3m0n7h" path="res://Music/No_Place_block.wav" id="5_pb5rb"]
+[ext_resource type="AudioStream" uid="uid://swkdpsin8eh8" path="res://Music/Rotate.wav" id="6_fof23"]
 
 [node name="Game_Manager" type="Node2D"]
 script = ExtResource("1_bbseq")
@@ -12,11 +14,17 @@ script = ExtResource("1_bbseq")
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("2_3q2do")
 
-[node name="Error" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("2_xqid2")
+[node name="Place" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_rtakw")
 
-[node name="Score" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("4_7t1tn")
+[node name="Laser" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_7buqo")
+
+[node name="No_Place_Block" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_pb5rb")
+
+[node name="Rotate" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_fof23")
 
 [node name="Game_Camera" type="Camera2D" parent="."]
 position = Vector2(-90, 0)
