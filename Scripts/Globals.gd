@@ -14,10 +14,10 @@ var LASER_TETROMINO_INTERVAL = 3
 var SHOP_PIECE_INTERVAL = 15
 
 var COLORS = [
-	"RED",
-	"GREEN",
-	"BLUE",
-	"ORANGE",
+	"Blue",
+	"Green",
+	"Orange",
+	"Red",
 ]
 
 var SHAPES = [
