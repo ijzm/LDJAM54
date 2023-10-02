@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvkyviuaunjf"]
+[gd_scene load_steps=12 format=3 uid="uid://ctvkyviuaunjf"]
 
 [ext_resource type="PackedScene" uid="uid://ba4tew5hghlgv" path="res://Levels/game_manager.tscn" id="1_8r2yb"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_u4ynh"]
@@ -10,9 +10,23 @@ bg_color = Color(0.411765, 0.411765, 0.411765, 1)
 [sub_resource type="Theme" id="Theme_jjhfd"]
 Panel/styles/panel = SubResource("StyleBoxFlat_ayx6l")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbi4q"]
+bg_color = Color(0.54902, 0.298039, 0.858824, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_2d3d0"]
 font = ExtResource("3_xocie")
 font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxvim"]
+bg_color = Color(0.54902, 0.298039, 0.858824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rj3q"]
+bg_color = Color(0.54902, 0.298039, 0.858824, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtbea"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3vry"]
+bg_color = Color(0.396078, 0.219608, 0.611765, 1)
 
 [node name="Game" type="Node"]
 
@@ -43,6 +57,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_jjhfd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sbi4q")
 
 [node name="Score_Label" type="Label" parent="UI/HBoxContainer/VBoxContainer/Score"]
 layout_mode = 1
@@ -65,6 +80,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_jjhfd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jxvim")
 
 [node name="Next_Label" type="Label" parent="UI/HBoxContainer/VBoxContainer/Next"]
 layout_mode = 1
@@ -83,6 +99,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_jjhfd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3rj3q")
 
 [node name="Current_Label" type="Label" parent="UI/HBoxContainer/VBoxContainer/Current"]
 layout_mode = 1
@@ -96,10 +113,12 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Panel" type="Panel" parent="UI/HBoxContainer"]
+material = SubResource("ShaderMaterial_qtbea")
 custom_minimum_size = Vector2(580, 580)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_jjhfd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f3vry")
 
 [connection signal="update_ui" from="Game_Manager" to="UI" method="_on_game_manager_update_ui"]
