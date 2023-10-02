@@ -57,14 +57,14 @@ func generate_laser():
 			Vector2(laser_instance.pos, -1) * Globals.SIZE
 		)
 		laser_instance.set_rotation(PI / 2)
-		init_no_laser("v", laser_instance.pos-1, laser_instance)
+		if(laser_instance.pos-1 > 0):
+			init_no_laser("v", laser_instance.pos-1, laser_instance)
 
 	current_lasers.append(laser_instance)
 	
 
 func update_lasers():
 	var to_delete = []
-	var delete_laser_walls = false
 	for i in current_lasers:
 		add_tweens(i)
 
@@ -306,6 +306,7 @@ func init_board():
 		board.height * Globals.SIZE.y 
 	))
 
+	init_no_laser("v", -1)
 	for i in range(board.width):
 		init_no_laser("v", i)
 
@@ -326,8 +327,13 @@ func init_no_laser(dir, pos, connected_laser=null):
 		)
 		no_laser_tile_instance.set_rotation(PI / 2)
 		
+	# Corner piece
+	if(pos == -1):
+		var new_texture = load("res://Graphics//No_Laser_Corner_Tile.png")
+		no_laser_tile_instance.set_texture(new_texture)
+		
 	if(connected_laser != null):
-		var new_texture = load("res://Graphics//No_Laser_Wall_Tile.png") # Load the new texture.
+		var new_texture = load("res://Graphics//No_Laser_Wall_Tile.png")
 		no_laser_tile_instance.set_texture(new_texture)
 		current_laser_walls[connected_laser] = no_laser_tile_instance
 		

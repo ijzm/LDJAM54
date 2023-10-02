@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctvkyviuaunjf"]
+[gd_scene load_steps=13 format=3 uid="uid://ctvkyviuaunjf"]
 
 [ext_resource type="PackedScene" uid="uid://ba4tew5hghlgv" path="res://Levels/game_manager.tscn" id="1_8r2yb"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="2_u4ynh"]
@@ -27,6 +27,9 @@ bg_color = Color(0.54902, 0.298039, 0.858824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3vry"]
 bg_color = Color(0.396078, 0.219608, 0.611765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ii1vf"]
+bg_color = Color(0.278431, 0.109804, 0.45098, 1)
 
 [node name="Game" type="Node"]
 
@@ -120,5 +123,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_jjhfd")
 theme_override_styles/panel = SubResource("StyleBoxFlat_f3vry")
+
+[node name="Panel" type="Panel" parent="UI"]
+show_behind_parent = true
+z_index = -1
+offset_right = 965.0
+offset_bottom = 611.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ii1vf")
 
 [connection signal="update_ui" from="Game_Manager" to="UI" method="_on_game_manager_update_ui"]
